@@ -4,6 +4,7 @@
  * getY - return Y postion
  * setX - sets X position
  * setY - sets Y position.
+ * 
  */
 
 public class Point {
@@ -12,8 +13,8 @@ public class Point {
     private int y;
 
     public Point(int x, int y) {
-        this.x = x; // describe x axis (horizontal)
-        this.y = y; // describe y axis (vertical)
+        this.x = x;  // describe x axis (horizontal)
+        this.y = y;  // describe y axis (vertical)
     }
 
     public int getX() {
