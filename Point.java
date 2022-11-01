@@ -17,19 +17,19 @@ public class Point {
         this.y = y;  // describe y axis (vertical)
     }
 
-    public int getX() {
+    public int get_x() {
         return x;
     }
 
-    public int getY() {
+    public int get_y() {
         return y;
     }
 
-    public void setX(int x) {
+    public void set_x(int x) {
         this.x = x;
     }
 
-    public void setY(int y) {
+    public void set_y(int y) {
         this.y = y;
     }
 
