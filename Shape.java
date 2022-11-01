@@ -34,7 +34,7 @@ public abstract class Shape {
         this.y_centre = y_centre;
     }
 
-    public abstract void drawShape(Graphics g, boolean draw_shape_name, boolean draw_bb);
+    public abstract void draw_shape(Graphics g, boolean draw_shape_name, boolean draw_bb);
     public abstract BoundingBox get_bb();
 
     protected void draw_name(Graphics g) {

@@ -1,45 +1,22 @@
-package com.dermot.ca1.boundingboxex1;
-
+/*  Circle class that inherits from Shape class
+ var radius = radius
+color filled, x_centre and y_centre inherited from Shape
+*/
 import java.awt.*;
 
-public class Circle extends Shape{
-    private int radius;
+public class Circle extends Shape {
+    private int radius; // radius is needed only to create circle
 
-    //I've put the bounding box here for the purposes of the exercise
-    private BoundingBox boundingBox;
 
-    //Illustrative constructor
-    public Circle(int xCenter, int yCenter, int radius)
+    public Circle(Color color, boolean filled, int x_centre, int y_centre, int radius)
     {
-        super(xCenter, yCenter);
+        super(color, filled, x_centre, y_centre);
         this.radius = radius;
-        setupBoundingBox();
     }
-
-    /**
-     * NB: This version uses hard-coded values for the point coordinates.
-     * Of course, the actual code should compute these coordinates (based on
-     * the center coordinates and the radius). Refer to the document on the Bounding Box
-     * exercises.
-     */
-    public void setupBoundingBox() {
-        boundingBox = new BoundingBox(new Point(100, 100), new Point(60, 80));
-    }
-
-    public BoundingBox getBoundingBox() {
-        return boundingBox;
-    }
-
-
+    
     @Override
-    public void drawShape(Graphics g) {
+    public void draw_shape(Graphics g, boolean display_) {
         System.out.println(this.toString());
     }
 
-    @Override
-    public String toString() {
-        return "Circle{" +
-                "radius=" + radius + super.toString() +
-                '}';
-    }
 }
