@@ -48,6 +48,7 @@ public abstract class Shape {
 
         // - 20 pixels on X axis so object is more centred 
         // temporary solution perhaps change color of the font 
+        }
     }
 
     protected void draw_bb(Graphics g) {

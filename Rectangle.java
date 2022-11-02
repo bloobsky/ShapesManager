@@ -1,49 +1,33 @@
-package com.dermot.ca1.boundingboxex1;
-
 import java.awt.*;
 
-/*
-    Note: the constructors are not complete (but are sufficient for the purposes of the exercise.
-    Note 2: You should complete/amend the setupBoundingBox() method.
- */
+
 public class Rectangle extends Shape {
+
     private int width;
     private int height;
 
-    BoundingBox boundingBox;
-
-    public Rectangle(int xCenter, int yCenter, int width, int height) {
-        super(xCenter, yCenter);
+    public Rectangle(Color color, boolean filled, int x_centre, int y_centre,  int width, int height) {
+        super(color, filled, x_centre, y_centre);
         this.width = width;
         this.height = height;
-        setupBoundingBox();
     }
 
-    /**
-     * NB: This version uses hard-coded values for the point coordinates.
-     * Of course, the actual code should compute these coordinates (based on
-     * the center coordinates, width and height). Refer to the document on the Bounding Box
-     * exercises.
-     */
-    public void setupBoundingBox() {
-        boundingBox = new BoundingBox(new Point(100, 100), new Point(60, 80));
-    }
-
-    public BoundingBox getBoundingBox() {
-        return boundingBox;
-    }
 
     @Override
-    public void drawShape(Graphics g) {
-        System.out.println(this.toString());
-    }
+    public void draw_shape(Graphics g, boolean draw_shape_name, boolean draw_bb) {
+        g.setColor(get_color());
+        if (get_fill()) g.fillRect(get_x_centre()-(width/2), get_y_centre()-(height/2),width,height ); // simple math fill the object with color
+        else g.drawRect(get_x_centre()-(width/2), get_y_centre()-(height/2),width,height); // here different function just to not fill the object with color
 
-    @Override
-    public String toString() {
-        return "Rectangle{" +
-                "width=" + width +
-                ", height=" + height +
-                '}' + super.toString();
-    }
+        draw_name(g);
+        draw_bb(g);
+        }   
+     
+        @Override
+        public BoundingBox get_bb() {
+            Point x = new Point(get_x_centre() - (width / 2), get_y_centre() + (height / 2));
+            Point y = new Point(get_x_centre() + (width / 2), get_y_centre() - (height / 2));
+            return new BoundingBox(x, y);
+        }    
+
 }
-
