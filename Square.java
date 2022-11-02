@@ -16,4 +16,8 @@ public class Square extends Rectangle{
         super(color, filled, x_centre, y_centre, side, side); // 2 side
         this.side = side;
     }
+
+    public int get_side() {
+        return side;
+    }
 }

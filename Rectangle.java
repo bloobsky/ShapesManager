@@ -28,6 +28,14 @@ public class Rectangle extends Shape {
             Point x = new Point(get_x_centre() - (width / 2), get_y_centre() + (height / 2));
             Point y = new Point(get_x_centre() + (width / 2), get_y_centre() - (height / 2));
             return new BoundingBox(x, y);
-        }    
+        }   
+        
+        public int get_width() {
+            return width;
+        }
+
+        public int get_height() {
+            return height;
+        }
 
 }
