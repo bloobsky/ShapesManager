@@ -5,27 +5,23 @@ public class Quadritelar extends Shape {
     
     private Point[] points;
 
-    public Quadritelar(Point centre_point, Point[] points) {
-        super(Color.YELLOW, false, centre_point.get_x(), centre_point.get_y());
+    public Quadritelar(Color color, boolean filled, Point centre_point, Point[] points) {
+        super(color, filled, centre_point.get_x(), centre_point.get_y());
         this.points = points;
     }
 
-    public Quadritelar(Point centre_point, Point p1, Point p2, Point p3, Point p4) {
-        super(Color.YELLOW, false,  centre_point.get_x(), centre_point.get_y());
+    public Quadritelar(Color color, boolean filled, Point centre_point, Point p1, Point p2, Point p3, Point p4) {
+        super(color, filled, centre_point.get_x(), centre_point.get_y());
         this.points = new Point[]{p1, p2, p3, p4};
     }
 
-    public Quadritelar(Rectangle rectangle){
-        super(Color.YELLOW, false, rectangle.get_x_centre(), rectangle.get_y_centre());
+    public Quadritelar(Color color, boolean filled, Rectangle rectangle){
+        super(color, filled, rectangle.get_x_centre(), rectangle.get_y_centre());
 
-        int rect_x_centre = rectangle.get_x_centre();
-        int rect_y_centre = rectangle.get_y_centre();
-
-
-        Point p1 = new Point(rect_x_centre - (rectangle.get_width()/2), rect_y_centre - (rectangle.get_height()/2));
-        Point p2 = new Point(rect_x_centre + (rectangle.get_width()/2), rect_y_centre - (rectangle.get_height()/2));
-        Point p3 = new Point(rect_x_centre + (rectangle.get_width()/2), rect_y_centre + (rectangle.get_height()/2));
-        Point p4 = new Point(rect_x_centre - (rectangle.get_width()/2), rect_y_centre + (rectangle.get_height()/2));
+        Point p1 = new Point(rectangle.get_x_centre() - (rectangle.get_width()/2), rectangle.get_y_centre() - (rectangle.get_height()/2));
+        Point p2 = new Point(rectangle.get_x_centre() + (rectangle.get_width()/2), rectangle.get_y_centre() - (rectangle.get_height()/2));
+        Point p3 = new Point(rectangle.get_x_centre() + (rectangle.get_width()/2), rectangle.get_y_centre() + (rectangle.get_height()/2));
+        Point p4 = new Point(rectangle.get_x_centre() - (rectangle.get_width()/2), rectangle.get_y_centre() + (rectangle.get_height()/2));
 
         this.points = new Point[]{p1,p2,p3,p4};
     }
@@ -46,5 +42,19 @@ public class Quadritelar extends Shape {
         draw_bb(g);
     }
 
-    
+    @Override
+    public BoundingBox get_bb(){
+
+        Point[] temp_array = Arrays.copyOf(points,points.length);
+        Arrays.sort(temp_array,new CompareX());
+        int x1 = temp_array[0].get_x();
+        int x2 = temp_array[temp_array.length-1].get_x();
+
+        Arrays.sort(temp_array, new CompareY());
+        int y1 = temp_array[temp_array.length-1].get_y();
+        int y2 = temp_array[0].get_y();
+
+        return new BoundingBox(new Point(x1,y1),new Point(x2,y2));
+
+    }
 }
