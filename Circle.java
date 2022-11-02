@@ -29,7 +29,7 @@ public class Circle extends Shape {
 
     @Override
     public BoundingBox get_bb() {
-        BoundingBox box = new BoundingBox(new Point(get_x_centre()-radius, get_y_centre()+radius), new Point(get_x_centre()+radius, get_y_centre() - radus));
+        BoundingBox box = new BoundingBox(new Point(get_x_centre()-radius, get_y_centre()+radius), new Point(get_x_centre()+radius, get_y_centre() - radius));
         return box; // returning bounding box to circle using simple math
     }
 
