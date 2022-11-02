@@ -20,4 +20,13 @@ public class ShapesManager {
             s.draw_shape(g, display_name, display_bb);
         }
     }
+
+    public void enable_display_name(boolean display_name) {
+        this.display_name = display_name;
+    }
+
+    
+    public void enable_display_bb(boolean display_bb) {
+        this.display_bb = display_bb;
+    }
 }
