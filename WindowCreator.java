@@ -13,7 +13,15 @@ public class WindowCreator {
         customWindow.setTitle("Shapes Manager - play with Shapes");
         customWindow.setVisible(true);
 
-        shapes_manager.add_shape(new Circle( Color.RED, true, 100, 200, 50));
+        // CREATING OBJECT
+        Circle c1 = new Circle(Color.RED, true, 100, 200, 50);
+        Rectangle r1 = new Rectangle(Color.BLUE, true, 500, 200, 100, 100 );
+        Quadritelar q1 = new Quadritelar(Color.RED, false, new Point(400,300), new Point[]{new Point(140,160), new Point(250,160), new Point(300,250), new Point(140,250)});
+
+        shapes_manager.add_shape(c1);
+        shapes_manager.add_shape(r1);
+        shapes_manager.add_shape(q1);
+
 
     }
 }
