@@ -1,13 +1,12 @@
-
 import javax.swing.*;
+import java.awt.*;
 
 public class WindowCreator {
     public static void main(String[] args) {
 
-        //Create and configure our JFrame (window)
         CustomWindow customWindow = new CustomWindow();
         customWindow.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        customWindow.setTitle("Test Window");
+        customWindow.setTitle("Shapes Manager - play with Shapes");
         customWindow.setVisible(true);
     }
 }
