@@ -1,3 +1,10 @@
+/* The rectangle class
+ * color filled, x_centre and y_centre inherited from Shape
+ * width = width of rectangle\
+ * height = height of rectangle
+ * 
+ */
+
 import java.awt.*;
 
 
@@ -12,6 +19,11 @@ public class Rectangle extends Shape {
         this.height = height;
     }
 
+    public Rectangle(Color color, int x_centre, int y_centre, int width, int height) {
+        super(color, x_centre, y_centre)
+        this.width = width;
+        this.height = height;
+    }
 
     @Override
     public void draw_shape(Graphics g, boolean draw_shape_name, boolean draw_bb) {

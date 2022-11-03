@@ -49,7 +49,7 @@ public abstract class Shape {
         }
         else {
             g.setColor(Color.BLACK);
-            g.drawString(this.getClass().getSimpleName(), x_centre - 20, y_centre);
+            g.drawString(this.getClass().getSimpleName(), x_centre , y_centre);
         // - 20 pixels on X axis so object is more centred 
         // temporary solution perhaps change color of the font 
         }
