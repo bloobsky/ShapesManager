@@ -5,18 +5,18 @@ public class Quadritelar extends Shape {
     
     private Point[] points;
 
-    public Quadritelar(Color color, boolean filled, Point centre_point, Point[] points) {
-        super(color, filled, centre_point.get_x(), centre_point.get_y());
+    public Quadritelar(Point centre_point, Point[] points) {
+        super(Color.PINK, false,  centre_point.get_x(), centre_point.get_y());
         this.points = points;
     }
 
-    public Quadritelar(Color color, boolean filled, Point centre_point, Point p1, Point p2, Point p3, Point p4) {
-        super(color, filled, centre_point.get_x(), centre_point.get_y());
+    public Quadritelar(Point centre_point, Point p1, Point p2, Point p3, Point p4) {
+        super(Color.PINK, false, centre_point.get_x(), centre_point.get_y());
         this.points = new Point[]{p1, p2, p3, p4};
     }
 
-    public Quadritelar(Color color, boolean filled, Rectangle rectangle){
-        super(color, filled, rectangle.get_x_centre(), rectangle.get_y_centre());
+    public Quadritelar( Rectangle rectangle){
+        super(Color.PINK , false , rectangle.get_x_centre(), rectangle.get_y_centre());
 
         Point p1 = new Point(rectangle.get_x_centre() - (rectangle.get_width()/2), rectangle.get_y_centre() - (rectangle.get_height()/2));
         Point p2 = new Point(rectangle.get_x_centre() + (rectangle.get_width()/2), rectangle.get_y_centre() - (rectangle.get_height()/2));
@@ -45,7 +45,8 @@ public class Quadritelar extends Shape {
     @Override
     public BoundingBox get_bb(){
 
-        Point[] temp_array = Arrays.copyOf(points,points.length);
+        Point[] temp_array = Arrays.copyOf(points,            points.length);
+
         Arrays.sort(temp_array,new CompareX());
         int x1 = temp_array[0].get_x();
         int x2 = temp_array[temp_array.length-1].get_x();
