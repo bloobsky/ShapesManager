@@ -34,18 +34,22 @@ public abstract class Shape {
         this.y_centre = y_centre;
     }
 
+    public Shape(Color color, int x_centre, int y_centre) {
+        this.color = color;
+        this.x_centre = x_centre;
+        this.y_centre = y_centre;
+    }
+
     public abstract void draw_shape(Graphics g, boolean draw_shape_name, boolean draw_bb);
     public abstract BoundingBox get_bb();
 
     protected void draw_name(Graphics g) {
         if(filled) {
-            g.drawString(this.getClass().getSimpleName(), x_centre - 20, y_centre);
             g.setColor(Color.WHITE);
         }
         else {
-            g.drawString(this.getClass().getSimpleName(), x_centre - 20, y_centre);
             g.setColor(Color.BLACK);
-
+            g.drawString(this.getClass().getSimpleName(), x_centre - 20, y_centre);
         // - 20 pixels on X axis so object is more centred 
         // temporary solution perhaps change color of the font 
         }
@@ -55,11 +59,12 @@ public abstract class Shape {
         BoundingBox bb = get_bb();
         g.setColor(Color.GRAY);
         
-        // provisional rectangle
-        g.drawLine(bb.get_tr_corner().get_x(),bb.get_tr_corner().get_y(), bb.get_tr_corner().get_x(), bb.get_bl_corner().get_y());
-        g.drawLine(bb.get_tr_corner().get_x(),bb.get_bl_corner().get_y(), bb.get_bl_corner().get_x(), bb.get_bl_corner().get_y());
-        g.drawLine(bb.get_bl_corner().get_x(),bb.get_tr_corner().get_y(), bb.get_tr_corner().get_x(), bb.get_tr_corner().get_y());
-        g.drawLine(bb.get_bl_corner().get_x(),bb.get_bl_corner().get_y(), bb.get_bl_corner().get_x(), bb.get_tr_corner().get_y());
+        int x_axis = bb.get_bl_corner().get_x();
+        int y_axis = bb.get_bl_corner().get_y();
+        int width = bb.get_tr_corner().get_x() - bb.get_bl_corner().get_x();
+        int height = bb.get_bl_corner().get_y() - bb.get_tr_corner().get_x();
+
+        g.drawRect(x_axis, y_axis, width, height);
 
     }
 

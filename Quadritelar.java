@@ -15,14 +15,19 @@ public class Quadritelar extends Shape {
         this.points = new Point[]{p1, p2, p3, p4};
     }
 
-    public Quadritelar( Rectangle rectangle){
+    public Quadritelar(Rectangle rectangle){
         super(Color.PINK , false , rectangle.get_x_centre(), rectangle.get_y_centre());
 
-        Point p1 = new Point(rectangle.get_x_centre() - (rectangle.get_width()/2), rectangle.get_y_centre() - (rectangle.get_height()/2));
-        Point p2 = new Point(rectangle.get_x_centre() + (rectangle.get_width()/2), rectangle.get_y_centre() - (rectangle.get_height()/2));
-        Point p3 = new Point(rectangle.get_x_centre() + (rectangle.get_width()/2), rectangle.get_y_centre() + (rectangle.get_height()/2));
-        Point p4 = new Point(rectangle.get_x_centre() - (rectangle.get_width()/2), rectangle.get_y_centre() + (rectangle.get_height()/2));
+        int rectXCenter = rectangle.get_x_centre();
+        int rectYCenter = rectangle.get_y_centre();
+        int rectHalfWidth = (rectangle.get_width()/2);
+        int rectHalfHeight = (rectangle.get_height()/2);
 
+
+        Point p1 = new Point(rectXCenter - rectHalfWidth, rectYCenter - rectHalfHeight);
+        Point p2 = new Point(rectXCenter + rectHalfWidth, rectYCenter - rectHalfHeight);
+        Point p3 = new Point(rectXCenter + rectHalfWidth, rectYCenter + rectHalfHeight);
+        Point p4 = new Point(rectXCenter - rectHalfWidth, rectYCenter + rectHalfHeight);
         this.points = new Point[]{p1,p2,p3,p4};
     }
 
@@ -45,7 +50,7 @@ public class Quadritelar extends Shape {
     @Override
     public BoundingBox get_bb(){
 
-        Point[] temp_array = Arrays.copyOf(points,            points.length);
+        Point[] temp_array = Arrays.copyOf(points, points.length);
 
         Arrays.sort(temp_array,new CompareX());
         int x1 = temp_array[0].get_x();
