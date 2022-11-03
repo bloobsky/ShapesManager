@@ -3,7 +3,7 @@
 color filled, x_centre and y_centre inherited from Shape
 
 
-draw shape
+draw shape function - drawing a shape of circle combined with bounding box (get_bb function)
 */
 import java.awt.*;
 
