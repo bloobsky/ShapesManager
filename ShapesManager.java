@@ -29,4 +29,8 @@ public class ShapesManager {
     public void enable_display_bb(boolean display_bb) {
         this.display_bb = display_bb;
     }
+
+    public ArrayList<Shape> get_shapes() {
+        return shapes; 
+    }
 }

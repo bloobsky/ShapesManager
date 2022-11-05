@@ -1,5 +1,6 @@
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.*;
 
 /**
  * This allows us to create a panel which we can add to a frame/window
@@ -16,6 +17,7 @@ public class CustomPanel extends JPanel {
 
     public CustomPanel(ShapesManager shapes_manager) {
         this.shapes_manager = shapes_manager;
+        addMouseListener();
     }
 
     @Override
@@ -25,4 +27,41 @@ public class CustomPanel extends JPanel {
 
     }
 
+    private void addMouseListener() {
+
+        addMouseListener(new MouseAdapter()  {
+
+            @Override
+            public void mouseClicked(MouseEvent e) {
+                super.mouseClicked(e);
+
+                for (Shape s:shapes_manager.get_shapes()) {
+                    BoundingBox bb = s.get_bb();
+
+                    int mouseX = e.getPoint().x;
+                    int mouseY = e.getPoint().y;
+
+                    Point bl  = bb.get_bl_corner();
+                    Point tr = bb.get_tr_corner();
+
+                    if((mouseX>= bl.get_x() && mouseX <= tr.get_x()) && (mouseY >= tr.get_y()) && mouseY<= bl.get_y() ) {
+                        if(e.getButton() == MouseEvent.BUTTON1) s.change_fill();
+
+                        if(e.getButton() == MouseEvent.BUTTON3) {
+                            if(s instanceof MoveIt) ((MoveIt) s).move_unit();
+                            if(s instanceof RotateIt) ((RotateIt) s).rotate_unit();
+                        }
+                    CustomPanel.super.repaint();
+                    }
+                }    
+            }    
+        });
+    }
 }
+
+
+
+
+
+
+

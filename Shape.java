@@ -63,6 +63,7 @@ public abstract class Shape {
         int y_axis = bb.get_bl_corner().get_y();
         int width = bb.get_tr_corner().get_x() - bb.get_bl_corner().get_x();
         int height = bb.get_bl_corner().get_y() - bb.get_tr_corner().get_x();
+        y_axis -= height;
 
         g.drawRect(x_axis, y_axis, width, height);
 

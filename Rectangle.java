@@ -3,6 +3,10 @@
  * width = width of rectangle\
  * height = height of rectangle
  * 
+ * get_width = return width value
+ * get_height = return height value
+ * 
+ * 
  */
 
 import java.awt.*;
@@ -20,7 +24,7 @@ public class Rectangle extends Shape {
     }
 
     public Rectangle(Color color, int x_centre, int y_centre, int width, int height) {
-        super(color, x_centre, y_centre)
+        super(color, x_centre, y_centre);
         this.width = width;
         this.height = height;
     }
