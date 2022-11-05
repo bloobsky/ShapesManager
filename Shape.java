@@ -90,11 +90,11 @@ public abstract class Shape {
         filled = !filled;
         }
     
-    public void set_x_centre() {
+    public void set_x_centre(int x_centre) {
         this.x_centre = x_centre;
     }
 
-    public void set_y_centre () {
+    public void set_y_centre(int y_centre) {
         this.y_centre = y_centre;
     }
 

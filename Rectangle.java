@@ -12,7 +12,7 @@
 import java.awt.*;
 
 
-public class Rectangle extends Shape {
+public class Rectangle extends Shape implements MoveIt{
 
     private int width;
     private int height;
@@ -52,6 +52,17 @@ public class Rectangle extends Shape {
 
         public int get_height() {
             return height;
+        }
+
+        @Override
+        public void move_unit() {
+            set_x_centre(get_x_centre() + 10);
+        }
+        
+        @Override
+        public void move_shape(int x, int y ) {
+            set_x_centre(get_x_centre() + x);
+            set_y_centre(get_y_centre() + y);
         }
 
 }

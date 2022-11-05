@@ -1,7 +1,7 @@
 import java.awt.*;
 import java.util.Arrays;
 
-public class Quadritelar extends Shape {
+public class Quadritelar extends Shape implements RotateIt {
     
     private Point[] points;
 
@@ -66,7 +66,7 @@ public class Quadritelar extends Shape {
     }
 
     private void rotate_it(Point p, Point centre_point) {
-        int rotation_degree = 90; 
+        int rotation_degree = 45; 
         double mCos = Math.cos(Math.toRadians(rotation_degree));
         double mSin = Math.sin(Math.toRadians(rotation_degree));
 
@@ -78,9 +78,8 @@ public class Quadritelar extends Shape {
 
 
         double rlx = (((point_x - centre_x) * mCos) - ((point_y - centre_y)*mSin));
-        double rly = (((point_x - centre_x) * mSin) + ((point_y) - centre_y)*mCos));
+        double rly = (((point_x - centre_x) * mSin) + ((point_y - centre_y)*mCos));
 
-        //Math.round to eliminate 'cast to int' rounding error
         p.set_x( (int) Math.round(rlx + centre_point.get_x()));
         p.set_y( (int) Math.round(rly + centre_point.get_y()));
 
