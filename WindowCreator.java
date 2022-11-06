@@ -14,7 +14,7 @@ public class WindowCreator {
         customWindow.setVisible(true);
 
         // CREATING OBJECT
-        Circle c1 = new Circle(Color.RED, true, 100, 200, 50);
+        Circle c1 = new Circle(Color.RED, true, 100, 180, 50);
         Rectangle r1 = new Rectangle(Color.BLUE, true, 500, 200, 100, 125 );
         Rectangle r2 = new Rectangle(Color.MAGENTA, 250, 290, 150, 130 );
         Quadritelar q1 = new Quadritelar(r2);
