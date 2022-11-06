@@ -10,6 +10,8 @@ import java.awt.event.*;
  * that we inherit from the javax.swing.JPanel class.
  * The graphics system passes us a java.awt.Graphics object and this has methods which allows us
  * to draw shapes.
+ * 
+ * MouseListener class derives from java.awt.event
  */
 public class CustomPanel extends JPanel {
 

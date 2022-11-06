@@ -1,10 +1,12 @@
 /* The rectangle class
  * color filled, x_centre and y_centre inherited from Shape
- * width = width of rectangle\
+ * width = width of rectangle
  * height = height of rectangle
  * 
  * get_width = return width value
  * get_height = return height value
+ * move_unit from MoveIt to move the Object 10 px to the right
+ * move_shape from MoveIt to move it actually
  * 
  * 
  */

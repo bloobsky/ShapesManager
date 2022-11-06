@@ -1,5 +1,5 @@
 import java.util.Comparator;
-
+/* returning differences between points X */
 public class CompareX implements Comparator<Point> {
     
   @Override

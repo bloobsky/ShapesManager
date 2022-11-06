@@ -13,7 +13,7 @@ public class CustomWindow extends JFrame {
 
         //add our new panel to the frame
         add(main_panel, BorderLayout.CENTER);
-        //set the dimensions of the frame/window
+        //set the dimensions of the frame/window from consts.java
         setSize(Consts.FRAME_WIDTH, Consts.FRAME_HEIGHT);
     }
 

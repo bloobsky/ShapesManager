@@ -1,7 +1,11 @@
 import java.util.ArrayList;
 import java.awt.*;
 
-
+/*
+ * Shapes are beeing added to the array 
+ * 
+ * func enable_display_name 
+ */
 public class ShapesManager {
 
     private ArrayList<Shape> shapes = new ArrayList<>();

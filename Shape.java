@@ -15,7 +15,7 @@
  * change_fill = changes filled from 0 to 1 
  * set_x_centre = sets centre of shape horizontal x
  * set_y_centre = sets centre of shape vertical y
- * set_color = sets color
+ * 
  * 
  */
 import java.awt.*;
@@ -62,7 +62,7 @@ public abstract class Shape {
         int x_axis = bb.get_bl_corner().get_x();
         int y_axis = bb.get_bl_corner().get_y();
         int width = bb.get_tr_corner().get_x() - bb.get_bl_corner().get_x();
-        int height = bb.get_bl_corner().get_y() - bb.get_tr_corner().get_x();
+        int height = bb.get_bl_corner().get_y() - bb.get_tr_corner().get_y();
         y_axis -= height;
 
         g.drawRect(x_axis, y_axis, width, height);
@@ -97,10 +97,5 @@ public abstract class Shape {
     public void set_y_centre(int y_centre) {
         this.y_centre = y_centre;
     }
-
-    public void set_color() {
-        this.color = color;
-    }
-
 
 }
